@@ -1,3 +1,32 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+# config/routes.yaml
+
+# the "app_lucky_number" route name is not important yet
+
+home:
+    path: /
+    controller: App\Controller\PublicController::home
+
+list:
+    path: /list
+    controller: App\Controller\PublicController::list
+
+profile:
+    path: /list/{id}
+    controller: App\Controller\PublicController::profile
+
+log:
+    path: /log
+    controller: App\Controller\PublicController::new
+
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::home
+
+user:
+    path: /user/{id}
+    controller: App\Controller\UserController::home
+

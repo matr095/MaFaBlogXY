@@ -1,0 +1,9 @@
+Page d'accueil
+
+Route		Controller			Template
+
+/			PublicController	home.html.twig
+/log		LogController		log.html.twig
+/admin		AdminController		admin.html.twig
+/user?id=?	ViewController		view.html.twig
+/contact	AboutController		about.html.twig

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/MaFaBlogXY/css/base.css">
+
+    <title>{{site_title}} - {{site_page}}</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">MaFaBLOG XY</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/MaFaBlogXY"><i class="fas fa-home"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/MaFaBlogXY/list"><i class="fas fa-list"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/MaFaBlogXY/log"><i class="fas fa-plus"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid red">
+      <div class="container">
+        <h1 class="display-4">Bienvenue</h1>
+        <p class="lead">La meilleure plateforme de blogs.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div id="content-fluid">
+      {% if site_page == 'Présentation' %}
+        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/414828823?autoplay=0&loop=1&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:80%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      {%endif%}
+      {% if site_page == 'Create Account' %}
+        <b>S'inscrire</b><br/>
+        {{ form(form) }}
+      {%endif%}
+      {% if site_page == 'Liste des MaFaBloggers' %}
+        <b>Liste des utilisateurs</b><br/>
+        {% for user in users  %}
+        <a href="list/{{user.id}}">{{user.getUser}}</a><br/>
+        {% endfor  %}
+      {%endif%}
+      {% if site_page == 'MaFaBlogger' %}
+        <b>Blog de {{user.getUser}}</b><br/><br>
+        <b>Ecrire un nouveau post:</b>
+        {{ form(form1) }}
+        <br><b>Liste des posts:</b><br>
+        {% for userpost in userposts %}
+          {{userpost.getMessage}}<br/>
+        {% endfor %}
+      {%endif%}
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/dafa7081c7.js" crossorigin="anonymous"></script>
+  </body>
+</html>
